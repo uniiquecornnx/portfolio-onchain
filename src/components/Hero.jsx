@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const HeroContainer = styled.section`
@@ -44,23 +44,42 @@ const ArchVideo = styled.div`
 
 const StyledVideo = styled.video`
   width: 100%;
-  height: 70%;
+  height: 100%;
   object-fit: cover;
   display: block;
+  cursor: pointer;
+`;
+
+const UnmuteOverlay = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 1.5rem;
+  font-size: 1rem;
+  pointer-events: none;
+  opacity: ${props => (props.visible ? 1 : 0)};
+  transition: opacity 0.2s;
+`;
+
+const VideoWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
 `;
 
 const Hero = () => {
   const videoRef = useRef(null);
+  const [muted, setMuted] = useState(true);
 
-  const handleMouseEnter = () => {
+  const handleVideoClick = () => {
     if (videoRef.current) {
-      videoRef.current.muted = false;
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = true;
+      const newMuted = !muted;
+      videoRef.current.muted = newMuted;
+      setMuted(newMuted);
     }
   };
 
@@ -69,18 +88,20 @@ const Hero = () => {
       <Asterisk>*</Asterisk>
       <Name>Aditi Gupta</Name>
       <ArchVideo>
-        <StyledVideo
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          <source src="aditi-3.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </StyledVideo>
+        <VideoWrapper>
+          <StyledVideo
+            ref={videoRef}
+            autoPlay
+            loop
+            muted={muted}
+            playsInline
+            onClick={handleVideoClick}
+          >
+            <source src="aditi-3.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </StyledVideo>
+          <UnmuteOverlay visible={muted}>||</UnmuteOverlay>
+        </VideoWrapper>
       </ArchVideo>
     </HeroContainer>
   );
