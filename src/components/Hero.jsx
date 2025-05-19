@@ -8,7 +8,7 @@ const HeroContainer = styled.section`
   align-items: center;
   justify-content: center;
   min-height: 60vh;
-  margin-top: 2rem;
+  margin-top: 8rem;
 `;
 
 const Asterisk = styled.div`
@@ -26,6 +26,11 @@ const Name = styled.h1`
   font-weight: 800;
   margin: 0;
   z-index: 2;
+  text-align: center;
+  text-shadow:
+    0 0 2px #fff,
+    0 0 4px #fff,
+    0 0 8px #fff;
 `;
 
 const ArchVideo = styled.div`
@@ -53,7 +58,7 @@ const StyledVideo = styled.video`
 const UnmuteOverlay = styled.div`
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 70%;
   transform: translate(-50%, -50%);
   background: rgba(0,0,0,0.4);
   color: #fff;

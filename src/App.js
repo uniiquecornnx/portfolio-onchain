@@ -4,6 +4,31 @@ import Categories from './components/Categories';
 import './App.css';
 import styled from 'styled-components';
 
+const BgVideoWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 800px;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+`;
+
+const BgVideo = styled.video`
+  width: 100vw;
+  height: 1000px;
+  object-fit: cover;
+  min-width: 100%;
+  min-height: 100%;
+`;
+
+const MainContent = styled.div`
+  position: relative;
+  
+  z-index: 1;
+`;
+
 const ContactSection = styled.section`
   display: flex;
   flex-direction: column;
@@ -14,10 +39,16 @@ const ContactSection = styled.section`
 `;
 
 const ContactText = styled.p`
-  font-size: 1.5rem;
+  font-size: 2.7rem;
   font-family: 'Cormorant Garamond', serif;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   color: #222;
+  font-weight: 400;
+  text-align: center;
+  padding: 2rem 2rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const ContactButton = styled.a`
@@ -43,12 +74,19 @@ const ContactButton = styled.a`
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <Hero />
-      <Categories />
+    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
+      <BgVideoWrapper>
+        <BgVideo autoPlay loop muted playsInline>
+          <source src="/pink-wave.mp4" type="video/mp4" />
+        </BgVideo>
+      </BgVideoWrapper>
+      <MainContent>
+        <Navbar />
+        <Hero />
+        <Categories />
+      </MainContent>
       <ContactSection>
-        <ContactText>Let's work together or just say hello! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus fermentum, mauris in sodales tincidunt, sapien lorem suscipit erat, ac malesuada magna odio a magna. Integer id arcu id dolor facilisis suscipit. Quisque ut felis ut mi feugiat faucibus non sed turpis.</ContactText>
+        <ContactText>Let's work together or just say hello! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus fermentum, mauris in sodales tincidunt, sapien lorem suscipit erat, ac malesuada magna odio a magna. Integer id arcu id dolor facilisis suscipit.</ContactText>
         <ContactButton href="#contact">Contact</ContactButton>
       </ContactSection>
     </div>

@@ -7,7 +7,7 @@ const CategoriesContainer = styled.div`
   margin-top: 2.5rem;
   font-family: 'Inter', sans-serif;
   font-size: 1.35rem;
-  font-weight: 600;
+  font-weight: 300;
 `;
 
 const Category = styled.a`
@@ -15,7 +15,7 @@ const Category = styled.a`
   text-decoration: none;
   transition: color 0.2s;
   &:hover {
-    color: #7bb6c7;
+    color:rgb(205, 170, 192);
   }
 `;
 
