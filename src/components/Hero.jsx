@@ -37,7 +37,7 @@ const ArchVideo = styled.div`
   width: 320px;
   height: 420px;
   background: #e6d3b3;
-  border-radius: 160px 160px 0 0 / 220px 220px 0 0;
+  border-radius: 175px 175px 0 0 / 150px 150px 0 0;
   margin: 0 auto;
   margin-top: -3.5vw;
   overflow: hidden;

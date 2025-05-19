@@ -5,7 +5,7 @@ const NavBarWrapper = styled.div`
   width: 100vw;
   position: fixed;
   top: 0;
-  left: 0;
+  left: -8rem;
   z-index: 100;
   border-bottom: 2px solid #e5e5e5;
   transition: background 0.3s, backdrop-filter 0.3s;
@@ -31,7 +31,7 @@ const Logo = styled.div`
   font-weight: 100;
   font-size: 2.2rem;
   letter-spacing: 0.1em;
-  margin-right: 45rem;
+  margin-right: 55rem;
 `;
 
 const NavLinks = styled.div`

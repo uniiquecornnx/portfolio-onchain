@@ -4,7 +4,7 @@ const CategoriesContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 2.5rem;
-  margin-top: 2.5rem;
+  margin-top: 2rem;
   font-family: 'Inter', sans-serif;
   font-size: 1.35rem;
   font-weight: 300;
