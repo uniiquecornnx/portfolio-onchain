@@ -82,6 +82,60 @@ const WorkHeadline = styled.h2`
   color: #222;
 `;
 
+const CardsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.5rem;
+  justify-content: center;
+  align-items: start;
+  max-width: 1000px;
+  margin: 5rem auto 4rem auto;
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const WorkCard = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  height: 250px;
+  background: #fff;
+  border-radius: 2rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  overflow: hidden;
+  border: 1.5px solid #ececec;
+  @media (max-width: 600px) {
+    width: 90vw;
+    height: 45vw;
+    min-height: 160px;
+  }
+`;
+
+const CardTopic = styled.div`
+  flex: 1;
+  background: #f7e6e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Caudex', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #b06c6c;
+  padding: 1rem;
+`;
+
+const CardExp = styled.div`
+  flex: 2;
+  display: flex;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  color: #222;
+  padding: 1.5rem;
+  background: #faf9f6;
+`;
+
 function App() {
   return (
     <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
@@ -100,6 +154,24 @@ function App() {
         <ContactButton href="#contact">Contact</ContactButton>
       </ContactSection>
       <WorkHeadline>My Work</WorkHeadline>
+      <CardsGrid>
+        <WorkCard>
+          <CardTopic>Marketing</CardTopic>
+          <CardExp>3 years at Creative Studio, led branding projects for startups and NGOs.</CardExp>
+        </WorkCard>
+        <WorkCard>
+          <CardTopic>BD</CardTopic>
+          <CardExp>2 years at Digital Agency, managed campaigns for tech and lifestyle brands.</CardExp>
+        </WorkCard>
+        <WorkCard>
+          <CardTopic>Events</CardTopic>
+          <CardExp>Product manager for SaaS platform, improved user retention by 30%.</CardExp>
+        </WorkCard>
+        <WorkCard>
+          <CardTopic>Growth</CardTopic>
+          <CardExp>Growth strategist for e-commerce, scaled user base from 10k to 100k.</CardExp>
+        </WorkCard>
+      </CardsGrid>
     </div>
   );
 }
