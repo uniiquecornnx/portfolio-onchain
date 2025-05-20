@@ -4,24 +4,25 @@ import React, { useEffect, useState } from 'react';
 const NavBarWrapper = styled.div`
   width: 100vw;
   position: fixed;
-  top: 0;
-  left: -8rem;
+  top: -0.7rem;
+  left: 0rem;
   z-index: 100;
   border-bottom: 2px solid #e5e5e5;
-  transition: background 0.3s, backdrop-filter 0.3s;
+  transition: background 1s, backdrop-filter 1s;
   background: ${({ bgOpacity }) => `rgba(255,255,255,${bgOpacity})`};
   backdrop-filter: ${({ bgOpacity }) => bgOpacity > 0.1 ? 'blur(6px)' : 'none'};
+  box-shadow: none;
 `;
 
 const Nav = styled.nav`
   width: 100%;
-  max-width: 1000px;
+  max-width: 1800px;
   margin: 0 auto;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   padding: 2rem 1.5rem 1rem 1.5rem;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Caudex', serif;
   font-size: 2rem;
   background: transparent;
   box-sizing: border-box;
@@ -31,7 +32,7 @@ const Logo = styled.div`
   font-weight: 100;
   font-size: 2.2rem;
   letter-spacing: 0.1em;
-  margin-right: 55rem;
+  margin-right: 63rem;
 `;
 
 const NavLinks = styled.div`

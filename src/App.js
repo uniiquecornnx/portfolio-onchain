@@ -9,7 +9,7 @@ const BgVideoWrapper = styled.div`
   top: 0;
   left: 0;
   width: 100vw;
-  height: 800px;
+  height: 850px;
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
@@ -17,7 +17,7 @@ const BgVideoWrapper = styled.div`
 
 const BgVideo = styled.video`
   width: 100vw;
-  height: 1000px;
+  height: 700px;
   object-fit: cover;
   min-width: 100%;
   min-height: 100%;
@@ -36,6 +36,7 @@ const ContactSection = styled.section`
   justify-content: center;
   min-height: 40vh;
   margin-top: 5rem;
+  margin-bottom: 7rem;
 `;
 
 const ContactText = styled.p`
@@ -62,7 +63,7 @@ const ContactButton = styled.a`
   font-weight: 400;
   letter-spacing: 0.05em;
   transition: background 0.2s, color 0.2s, border 0.2s;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.04);
   border: 2px solid transparent;
   &:hover {
     background: #fff;
@@ -70,6 +71,15 @@ const ContactButton = styled.a`
     border: 2px solid #222;
     font-weight: 400;
   }
+`;
+
+const WorkHeadline = styled.h2`
+  font-family: 'Caudex', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  text-align: center;
+  margin: 4rem 0 2rem 0;
+  color: #222;
 `;
 
 function App() {
@@ -89,6 +99,7 @@ function App() {
         <ContactText>Let's work together or just say hello! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus fermentum, mauris in sodales tincidunt, sapien lorem suscipit erat, ac malesuada magna odio a magna. Integer id arcu id dolor facilisis suscipit.</ContactText>
         <ContactButton href="#contact">Contact</ContactButton>
       </ContactSection>
+      <WorkHeadline>My Work</WorkHeadline>
     </div>
   );
 }
