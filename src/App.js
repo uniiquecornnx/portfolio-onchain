@@ -136,6 +136,70 @@ const CardExp = styled.div`
   background: #faf9f6;
 `;
 
+const ExpSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5rem;
+`;
+
+const ExpHeadline = styled.h2`
+  font-family: 'Caudex', serif;
+  font-size: 1.7rem;
+  font-weight: 400;
+  text-align: center;
+  margin: 2rem 0 1rem 0;
+  color: #222;
+`;
+
+const ExpHeadlineRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+`;
+
+const ExpHeadlineImg = styled.img`
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+`;
+
+const ExpSubtitleRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+`;
+
+const ExpSubtitleImg = styled.img`
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+`;
+
+const ExpSubtitle = styled.div`
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #888;
+  text-align: left;
+  margin-left: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+`;
+
+const ExpDescText = styled.p`
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  color: #222;
+  text-align: left;
+  max-width: 700px;
+  margin: 0 0 2.5rem 0;
+`;
+
 function App() {
   return (
     <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
@@ -172,6 +236,21 @@ function App() {
           <CardExp>Growth strategist for e-commerce, scaled user base from 10k to 100k.</CardExp>
         </WorkCard>
       </CardsGrid>
+      <ExpSection>
+        <ExpHeadlineRow>
+          <ExpHeadline>Supra</ExpHeadline>
+          <ExpHeadlineImg src="/your-supra-image.png" alt="Supra logo" />
+        </ExpHeadlineRow>
+        <div style={{width: '100%', maxWidth: 700, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}>
+          <ExpSubtitleRow>
+            
+            <ExpSubtitle>Growth Head</ExpSubtitle>
+          </ExpSubtitleRow>
+          <ExpDescText>
+            Here you can highlight your experience at a specific company. Add a short summary of your role, achievements, or anything you want visitors to know about your time there.
+          </ExpDescText>
+        </div>
+      </ExpSection>
     </div>
   );
 }
