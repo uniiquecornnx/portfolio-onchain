@@ -19,57 +19,11 @@ const BgVideo = styled.video`
   height: 710px;
   object-fit: cover;
   min-width: 100%;
-  min-height: 100%;
 `;
 
 const MainContent = styled.div`
   position: relative;
-  
   z-index: 1;
-`;
-
-const ContactSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 40vh;
-  margin-top: 5rem;
-  margin-bottom: 7rem;
-`;
-
-const ContactText = styled.p`
-  font-size: 2.7rem;
-  font-family: 'Cormorant Garamond', serif;
-  margin-bottom: 4rem;
-  color: #222;
-  font-weight: 400;
-  text-align: center;
-  padding: 2rem 2rem;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-`;
-
-const ContactButton = styled.a`
-  padding: 0.8rem 2.2rem;
-  background: #222;
-  color: #fff;
-  border-radius: 2rem;
-  font-size: 1.1rem;
-  font-family: 'Inter', sans-serif;
-  text-decoration: none;
-  font-weight: 400;
-  letter-spacing: 0.05em;
-  transition: background 0.2s, color 0.2s, border 0.2s;
-  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.04);
-  border: 2px solid transparent;
-  &:hover {
-    background: #fff;
-    color: #222;
-    border: 2px solid #222;
-    font-weight: 400;
-  }
 `;
 
 const WorkHeadline = styled.h2`
@@ -77,7 +31,7 @@ const WorkHeadline = styled.h2`
   font-size: 2rem;
   font-weight: 400;
   text-align: center;
-  margin: 4rem 0 2rem 0;
+  margin: 8rem 0 2rem 0;
   color: #222;
 `;
 
@@ -211,10 +165,6 @@ function App() {
         <Navbar />
         <Hero />
       </MainContent>
-      <ContactSection>
-        <ContactText>Let's work together or just say hello! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus fermentum, mauris in sodales tincidunt, sapien lorem suscipit erat, ac malesuada magna odio a magna. Integer id arcu id dolor facilisis suscipit.</ContactText>
-        <ContactButton href="#contact">Contact</ContactButton>
-      </ContactSection>
       <WorkHeadline>My Work</WorkHeadline>
       <CardsGrid>
         <WorkCard>
@@ -241,7 +191,6 @@ function App() {
         </ExpHeadlineRow>
         <div style={{width: '100%', maxWidth: 700, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}>
           <ExpSubtitleRow>
-            
             <ExpSubtitle>Growth Head</ExpSubtitle>
           </ExpSubtitleRow>
           <ExpDescText>

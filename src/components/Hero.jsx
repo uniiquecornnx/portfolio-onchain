@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import '@fontsource/caudex/400.css';
-import Categories from './Categories';
 
 const HeroContainer = styled.section`
   display: flex;
@@ -232,7 +231,6 @@ const Hero = () => {
             <UnmuteOverlay visible={muted}>||</UnmuteOverlay>
           </VideoWrapper>
         </ArchVideo>
-        <Categories />
       </RightSection>
     </HeroContainer>
   );

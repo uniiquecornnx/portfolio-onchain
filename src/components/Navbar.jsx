@@ -71,9 +71,9 @@ const Navbar = () => {
       <Nav>
         <Logo>*A</Logo>
         <NavLinks>
-          <Link href="#home">Home</Link>
-          <Link href="#work">Work</Link>
-          <Link href="#profile">Profile</Link>
+          <Link href="#home">Work</Link>
+          <Link href="#work">PoW</Link>
+          <Link href="#profile">CV</Link>
           <Link href="#contact">Contact</Link>
         </NavLinks>
       </Nav>
