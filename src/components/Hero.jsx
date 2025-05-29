@@ -22,6 +22,7 @@ const LeftSection = styled.div`
   flex-direction: column;
   align-items: flex-start;
   flex: 1;
+  margin-top: -1rem;
 `;
 
 const Asterisk = styled.div`
@@ -109,6 +110,65 @@ const VideoWrapper = styled.div`
   height: 100%;
 `;
 
+const InfoItems = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 1rem;
+  margin-bottom: 0rem;
+`;
+
+const InfoItem = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
+const InfoIcon = styled.img`
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+`;
+
+const InfoText = styled.span`
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #444;
+  font-weight: 400;
+`;
+
+const SocialLinks = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+`;
+
+const SocialLink = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  transition: transform 0.2s;
+  
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
+
+const InstagramLink = styled(SocialLink)`
+  width: 40px;
+  height: 40px;
+  margin-top: -2.5px;
+`;
+
+const SocialIcon = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+`;
+
 const Hero = () => {
   const videoRef = useRef(null);
   const [muted, setMuted] = useState(true);
@@ -125,10 +185,35 @@ const Hero = () => {
     <HeroContainer>
       <LeftSection>
         <Name>Aditi</Name>
+        <InfoItems>
+          <InfoItem>
+            <InfoIcon src="/globe-icon.png" alt="Location" />
+            <InfoText>Dubai, UAE</InfoText>
+          </InfoItem>
+          <InfoItem>
+            <InfoIcon src="/bag-icon.png" alt="Work" />
+            <InfoText>Growth & Marketing Professional</InfoText>
+          </InfoItem>
+          <InfoItem>
+            <InfoIcon src="/letter-icon.png" alt="Email" />
+            <InfoText>gaditi723@gmail.com</InfoText>
+          </InfoItem>
+        </InfoItems>
         <Introduction>
           A passionate professional with expertise in growth, marketing, and business development. 
           Creating impactful solutions and driving success through innovative strategies.
         </Introduction>
+        <SocialLinks>
+          <SocialLink href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
+            <SocialIcon src="/linkedin-icon.png" alt="LinkedIn" />
+          </SocialLink>
+          <SocialLink href="https://twitter.com/OnchainAditi" target="_blank" rel="noopener noreferrer">
+            <SocialIcon src="/twitter-icon.png" alt="Twitter" />
+          </SocialLink>
+          <InstagramLink href="https://instagram.com/your-handle" target="_blank" rel="noopener noreferrer">
+            <SocialIcon src="/instagram-icon.png" alt="Instagram" />
+          </InstagramLink>
+        </SocialLinks>
       </LeftSection>
       <RightSection>
         <ArchVideo>
