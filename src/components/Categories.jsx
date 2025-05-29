@@ -2,9 +2,8 @@ import styled from 'styled-components';
 
 const CategoriesContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 2.5rem;
-  margin-top: 2rem;
   font-family: 'Inter', sans-serif;
   font-size: 1.35rem;
   font-weight: 300;

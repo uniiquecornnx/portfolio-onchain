@@ -2,20 +2,31 @@ import styled from 'styled-components';
 import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import '@fontsource/caudex/400.css';
+import Categories from './Categories';
 
 const HeroContainer = styled.section`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   min-height: 60vh;
   margin-top: 8rem;
+  padding: 0 5rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+const LeftSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
 `;
 
 const Asterisk = styled.div`
   font-size: 7vw;
   font-family: 'Caudex', serif;
-  
   font-weight: 300;
   text-shadow:
     0 0 2px #fff,
@@ -27,11 +38,11 @@ const Asterisk = styled.div`
 
 const Name = styled.h1`
   font-family: 'Caudex', serif;
-  font-size: 7vw;
+  font-size: 6.3vw;
   font-weight: 1400;
   margin: 0;
   z-index: 2;
-  text-align: center;
+  text-align: left;
   color: rgb(0, 0, 0);
   text-shadow:
     0 0 2px #fff,
@@ -39,13 +50,29 @@ const Name = styled.h1`
     0 0 8px #fff;
 `;
 
+const Introduction = styled.p`
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem;
+  color: #222;
+  margin-top: 2rem;
+  max-width: 1000px;
+  line-height: 1.4;
+  font-weight: 500;
+`;
+
+const RightSection = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2rem;
+`;
+
 const ArchVideo = styled.div`
-  width: 320px;
-  height: 550px;
+  width: 300px;
+  height: 500px;
   background: #e6d3b3;
   border-radius: 200px 200px 200px 200px / 150px 150px 150px 150px;
-  margin: 0 auto;
-  margin-top: -10.7vw;
   overflow: hidden;
   display: flex;
   align-items: flex-end;
@@ -96,24 +123,32 @@ const Hero = () => {
 
   return (
     <HeroContainer>
-      <Asterisk>*</Asterisk>
-      <Name>Aditi Gupta</Name>
-      <ArchVideo>
-        <VideoWrapper>
-          <StyledVideo
-            ref={videoRef}
-            autoPlay
-            loop
-            muted={muted}
-            playsInline
-            onClick={handleVideoClick}
-          >
-            <source src="aditi-3.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </StyledVideo>
-          <UnmuteOverlay visible={muted}>||</UnmuteOverlay>
-        </VideoWrapper>
-      </ArchVideo>
+      <LeftSection>
+        <Name>Aditi</Name>
+        <Introduction>
+          A passionate professional with expertise in growth, marketing, and business development. 
+          Creating impactful solutions and driving success through innovative strategies.
+        </Introduction>
+      </LeftSection>
+      <RightSection>
+        <ArchVideo>
+          <VideoWrapper>
+            <StyledVideo
+              ref={videoRef}
+              autoPlay
+              loop
+              muted={muted}
+              playsInline
+              onClick={handleVideoClick}
+            >
+              <source src="aditi-3.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </StyledVideo>
+            <UnmuteOverlay visible={muted}>||</UnmuteOverlay>
+          </VideoWrapper>
+        </ArchVideo>
+        <Categories />
+      </RightSection>
     </HeroContainer>
   );
 };

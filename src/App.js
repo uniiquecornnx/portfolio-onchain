@@ -1,6 +1,5 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Categories from './components/Categories';
 import './App.css';
 import styled from 'styled-components';
 
@@ -9,7 +8,7 @@ const BgVideoWrapper = styled.div`
   top: 0;
   left: 0;
   width: 100vw;
-  height: 850px;
+  height: 710px;
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
@@ -17,7 +16,7 @@ const BgVideoWrapper = styled.div`
 
 const BgVideo = styled.video`
   width: 100vw;
-  height: 700px;
+  height: 710px;
   object-fit: cover;
   min-width: 100%;
   min-height: 100%;
@@ -211,7 +210,6 @@ function App() {
       <MainContent>
         <Navbar />
         <Hero />
-        <Categories />
       </MainContent>
       <ContactSection>
         <ContactText>Let's work together or just say hello! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus fermentum, mauris in sodales tincidunt, sapien lorem suscipit erat, ac malesuada magna odio a magna. Integer id arcu id dolor facilisis suscipit.</ContactText>
