@@ -31,7 +31,7 @@ const WorkHeadline = styled.h2`
   font-size: 2rem;
   font-weight: 400;
   text-align: center;
-  margin: 8rem 0 2rem 0;
+  margin: 8rem 0 3rem 0;
   color: #222;
 `;
 
@@ -42,7 +42,7 @@ const CardsGrid = styled.div`
   justify-content: center;
   align-items: start;
   max-width: 1000px;
-  margin: 5rem auto 4rem auto;
+  margin: 0 auto 2rem auto;
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
   }
@@ -92,25 +92,29 @@ const CardExp = styled.div`
 const ExpSection = styled.section`
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 0 2rem;
+`;
+
+const ExpHeadlineRow = styled.div`
+  display: flex;
   align-items: center;
-  margin-bottom: 5rem;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
 `;
 
 const ExpHeadline = styled.h2`
   font-family: 'Caudex', serif;
   font-size: 1.7rem;
   font-weight: 400;
-  text-align: center;
-  margin: 2rem 0 1rem 0;
+  text-align: left;
+  margin: 0;
   color: #222;
-`;
-
-const ExpHeadlineRow = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
 `;
 
 const ExpHeadlineImg = styled.img`
@@ -127,13 +131,6 @@ const ExpSubtitleRow = styled.div`
   margin-bottom: 0.5rem;
 `;
 
-const ExpSubtitleImg = styled.img`
-  width: 36px;
-  height: 36px;
-  object-fit: cover;
-  border-radius: 0.5rem;
-`;
-
 const ExpSubtitle = styled.div`
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
@@ -142,15 +139,6 @@ const ExpSubtitle = styled.div`
   margin-left: 0;
   margin-bottom: 0.5rem;
   font-weight: 500;
-`;
-
-const ExpDescText = styled.p`
-  font-family: 'Inter', sans-serif;
-  font-size: 1.1rem;
-  color: #222;
-  text-align: left;
-  max-width: 700px;
-  margin: 0 0 2.5rem 0;
 `;
 
 function App() {
@@ -166,6 +154,15 @@ function App() {
         <Hero />
       </MainContent>
       <WorkHeadline>My Work</WorkHeadline>
+      <ExpSection>
+        <ExpHeadlineRow>
+          <ExpHeadline>Supra</ExpHeadline>
+          <ExpHeadlineImg src="/supra.png" alt="Supra logo" />
+        </ExpHeadlineRow>
+        <ExpSubtitleRow>
+          <ExpSubtitle>Growth Head</ExpSubtitle>
+        </ExpSubtitleRow>
+      </ExpSection>
       <CardsGrid>
         <WorkCard>
           <CardTopic>Marketing</CardTopic>
@@ -184,20 +181,6 @@ function App() {
           <CardExp>Growth strategist for e-commerce, scaled user base from 10k to 100k.</CardExp>
         </WorkCard>
       </CardsGrid>
-      <ExpSection>
-        <ExpHeadlineRow>
-          <ExpHeadline>Supra</ExpHeadline>
-          <ExpHeadlineImg src="/your-supra-image.png" alt="Supra logo" />
-        </ExpHeadlineRow>
-        <div style={{width: '100%', maxWidth: 700, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}>
-          <ExpSubtitleRow>
-            <ExpSubtitle>Growth Head</ExpSubtitle>
-          </ExpSubtitleRow>
-          <ExpDescText>
-            Here you can highlight your experience at a specific company. Add a short summary of your role, achievements, or anything you want visitors to know about your time there.
-          </ExpDescText>
-        </div>
-      </ExpSection>
     </div>
   );
 }
