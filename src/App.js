@@ -2,6 +2,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import './App.css';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 const BgVideoWrapper = styled.div`
   position: absolute;
@@ -141,7 +142,94 @@ const ExpSubtitle = styled.div`
   font-weight: 500;
 `;
 
+const SubHeading = styled.h2`
+  font-family: 'Caudex', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  text-align: center;
+  margin: 6rem 0 3rem 0;
+  color: #222;
+`;
+
+const ImageCardsContainer = styled.div`
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto 6rem auto;
+  padding: 2rem 0;
+`;
+
+const ImageCardsWrapper = styled(motion.div)`
+  display: flex;
+  gap: 4rem;
+  padding: 0 2rem;
+`;
+
+const ImageCard = styled.div`
+  min-width: 600px;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+`;
+
+const CardImage = styled.img`
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 1rem;
+`;
+
+const CardContent = styled.div`
+  flex: 1;
+`;
+
+const CardTitle = styled.h3`
+  font-family: 'Caudex', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #222;
+  margin: 0 0 1rem 0;
+`;
+
+const CardDescription = styled.p`
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+  margin: 0;
+`;
+
 function App() {
+  const projects = [
+    {
+      image: "/projects/supra-project.jpg",
+      title: "Supra Growth Strategy",
+      description: "Led growth initiatives at Supra, implementing innovative marketing strategies that resulted in significant user acquisition and engagement. Focused on community building and strategic partnerships in the web3 space."
+    },
+    {
+      image: "/projects/marketing-campaign.jpg",
+      title: "Digital Marketing Campaign",
+      description: "Orchestrated comprehensive digital marketing campaigns for tech startups, achieving 150% growth in user engagement and 200% increase in conversion rates through targeted social media and content strategies."
+    },
+    {
+      image: "/projects/community-event.jpg",
+      title: "Community Event Series",
+      description: "Organized and executed successful community events and workshops, bringing together industry leaders and enthusiasts. Created engaging content and managed social media presence to maximize event impact."
+    },
+    {
+      image: "/projects/business-dev.jpg",
+      title: "Business Development",
+      description: "Spearheaded business development initiatives, establishing key partnerships and driving revenue growth. Successfully negotiated and closed strategic deals with major industry players."
+    }
+  ];
+
+  // Duplicate the projects array to create a seamless loop
+  const duplicatedProjects = [...projects, ...projects];
+
   return (
     <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
       <BgVideoWrapper>
@@ -181,6 +269,32 @@ function App() {
           <CardExp>Growth strategist for e-commerce, scaled user base from 10k to 100k.</CardExp>
         </WorkCard>
       </CardsGrid>
+      <SubHeading>other Projects</SubHeading>
+      <ImageCardsContainer>
+        <ImageCardsWrapper
+          animate={{
+            x: [0, -2400], // Adjust this value based on the total width of your cards
+          }}
+          transition={{
+            x: {
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: 20,
+              ease: "linear",
+            },
+          }}
+        >
+          {duplicatedProjects.map((project, index) => (
+            <ImageCard key={index}>
+              <CardImage src={project.image} alt={project.title} />
+              <CardContent>
+                <CardTitle>{project.title}</CardTitle>
+                <CardDescription>{project.description}</CardDescription>
+              </CardContent>
+            </ImageCard>
+          ))}
+        </ImageCardsWrapper>
+      </ImageCardsContainer>
     </div>
   );
 }
