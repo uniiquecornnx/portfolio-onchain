@@ -206,26 +206,38 @@ const CardDescription = styled.p`
 `;
 
 const VideoCard = styled(motion.div)`
-  min-width: 600px;
+  min-width: 300px;
   display: flex;
-  gap: 2rem;
-  align-items: center;
+  flex-direction: column;
   background: white;
-  padding: 1.5rem;
-  border-radius: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
   box-shadow: 0 4px 24px rgba(0,0,0,0.07);
   cursor: pointer;
 `;
 
 const VideoEmbed = styled.div`
-  width: 200px;
-  height: 200px;
-  border-radius: 1rem;
+  width: 100%;
+  height: 180px;
+  border-radius: 0.5rem;
   overflow: hidden;
   iframe {
     width: 100%;
     height: 100%;
     border: none;
+  }
+`;
+
+const TwitterImage = styled.div`
+  width: 100%;
+  height: 180px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  cursor: pointer;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 `;
 
@@ -270,24 +282,26 @@ function App() {
 
   const videos = [
     {
-      youtubeId: "YOUR_YOUTUBE_ID_1",
-      title: "Video Title 1",
-      description: "Description of the first video content and what it showcases."
+      type: 'youtube',
+      youtubeId: "mtKt64lVrmU"
     },
     {
-      youtubeId: "YOUR_YOUTUBE_ID_2",
-      title: "Video Title 2",
-      description: "Description of the second video content and what it showcases."
+      type: 'twitter',
+      tweetId: "1808796890122621249",
+      imageUrl: "/twitter/tweet1.jpg"
     },
     {
-      youtubeId: "YOUR_YOUTUBE_ID_3",
-      title: "Video Title 3",
-      description: "Description of the third video content and what it showcases."
+      type: 'youtube',
+      youtubeId: "DVzc19Jydac"
     },
     {
-      youtubeId: "YOUR_YOUTUBE_ID_4",
-      title: "Video Title 4",
-      description: "Description of the fourth video content and what it showcases."
+      type: 'youtube',
+      youtubeId: "cxNryhIlBgI"
+    },
+    {
+      type: 'twitter',
+      tweetId: "1684632964049829888",
+      imageUrl: "/twitter/tweet2.jpg"
     }
   ];
 
@@ -403,18 +417,26 @@ function App() {
                 onHoverStart={() => setIsVideoHovered(true)}
                 onHoverEnd={() => setIsVideoHovered(false)}
               >
-                <VideoEmbed>
-                  <iframe
-                    src={`https://www.youtube.com/embed/${video.youtubeId}`}
-                    title={video.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </VideoEmbed>
-                <CardContent>
-                  <CardTitle>{video.title}</CardTitle>
-                  <CardDescription>{video.description}</CardDescription>
-                </CardContent>
+                {video.type === 'youtube' ? (
+                  <VideoEmbed>
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.isPlaylist ? 'videoseries?list=' + video.youtubeId : video.youtubeId}`}
+                      title="YouTube video"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </VideoEmbed>
+                ) : (
+                  <TwitterImage 
+                    onClick={() => window.open(`https://twitter.com/AM_igdtuw/status/${video.tweetId}`, '_blank')}
+                  >
+                    <img 
+                      src={video.imageUrl} 
+                      alt="Tweet image"
+                      loading="lazy"
+                    />
+                  </TwitterImage>
+                )}
               </VideoCard>
             ))}
           </ImageCardsWrapper>
