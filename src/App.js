@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import './App.css';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { useState, useRef } from 'react';
 
 const BgVideoWrapper = styled.div`
   position: absolute;
@@ -165,7 +166,7 @@ const ImageCardsWrapper = styled(motion.div)`
   padding: 0 2rem;
 `;
 
-const ImageCard = styled.div`
+const ImageCard = styled(motion.div)`
   min-width: 600px;
   display: flex;
   gap: 2rem;
@@ -174,6 +175,7 @@ const ImageCard = styled.div`
   padding: 1.5rem;
   border-radius: 1rem;
   box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  cursor: pointer;
 `;
 
 const CardImage = styled.img`
@@ -203,7 +205,46 @@ const CardDescription = styled.p`
   margin: 0;
 `;
 
+const VideoCard = styled(motion.div)`
+  min-width: 600px;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  cursor: pointer;
+`;
+
+const VideoEmbed = styled.div`
+  width: 200px;
+  height: 200px;
+  border-radius: 1rem;
+  overflow: hidden;
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+`;
+
+const Section = styled.div`
+  scroll-margin-top: 80px;
+`;
+
 function App() {
+  const [isHovered, setIsHovered] = useState(false);
+  const [isVideoHovered, setIsVideoHovered] = useState(false);
+  
+  const workSectionRef = useRef(null);
+  const powSectionRef = useRef(null);
+  const cvSectionRef = useRef(null);
+  
+  const scrollToSection = (ref) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   const projects = [
     {
       image: "/projects/supra-project.jpg",
@@ -227,8 +268,31 @@ function App() {
     }
   ];
 
-  // Duplicate the projects array to create a seamless loop
+  const videos = [
+    {
+      youtubeId: "YOUR_YOUTUBE_ID_1",
+      title: "Video Title 1",
+      description: "Description of the first video content and what it showcases."
+    },
+    {
+      youtubeId: "YOUR_YOUTUBE_ID_2",
+      title: "Video Title 2",
+      description: "Description of the second video content and what it showcases."
+    },
+    {
+      youtubeId: "YOUR_YOUTUBE_ID_3",
+      title: "Video Title 3",
+      description: "Description of the third video content and what it showcases."
+    },
+    {
+      youtubeId: "YOUR_YOUTUBE_ID_4",
+      title: "Video Title 4",
+      description: "Description of the fourth video content and what it showcases."
+    }
+  ];
+
   const duplicatedProjects = [...projects, ...projects];
+  const duplicatedVideos = [...videos, ...videos];
 
   return (
     <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
@@ -238,63 +302,128 @@ function App() {
         </BgVideo>
       </BgVideoWrapper>
       <MainContent>
-        <Navbar />
+        <Navbar 
+          onWorkClick={() => scrollToSection(workSectionRef)}
+          onPowClick={() => scrollToSection(powSectionRef)}
+          onCvClick={() => scrollToSection(cvSectionRef)}
+        />
         <Hero />
       </MainContent>
-      <WorkHeadline>My Work</WorkHeadline>
-      <ExpSection>
-        <ExpHeadlineRow>
-          <ExpHeadline>Supra</ExpHeadline>
-          <ExpHeadlineImg src="/supra.png" alt="Supra logo" />
-        </ExpHeadlineRow>
-        <ExpSubtitleRow>
-          <ExpSubtitle>Growth Head</ExpSubtitle>
-        </ExpSubtitleRow>
-      </ExpSection>
-      <CardsGrid>
-        <WorkCard>
-          <CardTopic>Marketing</CardTopic>
-          <CardExp>3 years at Creative Studio, led branding projects for startups and NGOs.</CardExp>
-        </WorkCard>
-        <WorkCard>
-          <CardTopic>BD</CardTopic>
-          <CardExp>2 years at Digital Agency, managed campaigns for tech and lifestyle brands.</CardExp>
-        </WorkCard>
-        <WorkCard>
-          <CardTopic>Events</CardTopic>
-          <CardExp>Product manager for SaaS platform, improved user retention by 30%.</CardExp>
-        </WorkCard>
-        <WorkCard>
-          <CardTopic>Growth</CardTopic>
-          <CardExp>Growth strategist for e-commerce, scaled user base from 10k to 100k.</CardExp>
-        </WorkCard>
-      </CardsGrid>
-      <SubHeading>other Projects</SubHeading>
-      <ImageCardsContainer>
-        <ImageCardsWrapper
-          animate={{
-            x: [0, -2400], // Adjust this value based on the total width of your cards
-          }}
-          transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 20,
-              ease: "linear",
-            },
-          }}
-        >
-          {duplicatedProjects.map((project, index) => (
-            <ImageCard key={index}>
-              <CardImage src={project.image} alt={project.title} />
-              <CardContent>
-                <CardTitle>{project.title}</CardTitle>
-                <CardDescription>{project.description}</CardDescription>
-              </CardContent>
-            </ImageCard>
-          ))}
-        </ImageCardsWrapper>
-      </ImageCardsContainer>
+
+      <Section ref={workSectionRef} data-section="work">
+        <WorkHeadline>My Work</WorkHeadline>
+        <ExpSection>
+          <ExpHeadlineRow>
+            <ExpHeadline>Supra</ExpHeadline>
+            <ExpHeadlineImg src="/supra.png" alt="Supra logo" />
+          </ExpHeadlineRow>
+          <ExpSubtitleRow>
+            <ExpSubtitle>Growth Head</ExpSubtitle>
+          </ExpSubtitleRow>
+        </ExpSection>
+        <CardsGrid>
+          <WorkCard>
+            <CardTopic>Marketing</CardTopic>
+            <CardExp>3 years at Creative Studio, led branding projects for startups and NGOs.</CardExp>
+          </WorkCard>
+          <WorkCard>
+            <CardTopic>BD</CardTopic>
+            <CardExp>2 years at Digital Agency, managed campaigns for tech and lifestyle brands.</CardExp>
+          </WorkCard>
+          <WorkCard>
+            <CardTopic>Events</CardTopic>
+            <CardExp>Product manager for SaaS platform, improved user retention by 30%.</CardExp>
+          </WorkCard>
+          <WorkCard>
+            <CardTopic>Growth</CardTopic>
+            <CardExp>Growth strategist for e-commerce, scaled user base from 10k to 100k.</CardExp>
+          </WorkCard>
+        </CardsGrid>
+        <SubHeading>other Projects</SubHeading>
+        <ImageCardsContainer>
+          <ImageCardsWrapper
+            animate={{
+              x: [0, -2400],
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 20,
+                ease: "linear",
+              },
+            }}
+            style={{ animationPlayState: isHovered ? 'paused' : 'running' }}
+          >
+            {duplicatedProjects.map((project, index) => (
+              <ImageCard 
+                key={index}
+                whileHover={{ 
+                  scale: 1.05,
+                  transition: { duration: 0.2 }
+                }}
+                onHoverStart={() => setIsHovered(true)}
+                onHoverEnd={() => setIsHovered(false)}
+              >
+                <CardImage src={project.image} alt={project.title} />
+                <CardContent>
+                  <CardTitle>{project.title}</CardTitle>
+                  <CardDescription>{project.description}</CardDescription>
+                </CardContent>
+              </ImageCard>
+            ))}
+          </ImageCardsWrapper>
+        </ImageCardsContainer>
+      </Section>
+
+      <Section ref={powSectionRef}>
+        <SubHeading>POW</SubHeading>
+        <ImageCardsContainer>
+          <ImageCardsWrapper
+            animate={{
+              x: [0, -2400],
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 20,
+                ease: "linear",
+              },
+            }}
+            style={{ animationPlayState: isVideoHovered ? 'paused' : 'running' }}
+          >
+            {duplicatedVideos.map((video, index) => (
+              <VideoCard 
+                key={index}
+                whileHover={{ 
+                  scale: 1.05,
+                  transition: { duration: 0.2 }
+                }}
+                onHoverStart={() => setIsVideoHovered(true)}
+                onHoverEnd={() => setIsVideoHovered(false)}
+              >
+                <VideoEmbed>
+                  <iframe
+                    src={`https://www.youtube.com/embed/${video.youtubeId}`}
+                    title={video.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </VideoEmbed>
+                <CardContent>
+                  <CardTitle>{video.title}</CardTitle>
+                  <CardDescription>{video.description}</CardDescription>
+                </CardContent>
+              </VideoCard>
+            ))}
+          </ImageCardsWrapper>
+        </ImageCardsContainer>
+      </Section>
+
+      <Section ref={cvSectionRef}>
+        {/* Add your CV section content here */}
+      </Section>
     </div>
   );
 }
