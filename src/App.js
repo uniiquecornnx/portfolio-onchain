@@ -38,13 +38,20 @@ const WorkHeadline = styled.h2`
 `;
 
 const CardsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 3.5rem;
-  justify-content: center;
-  align-items: start;
   max-width: 1000px;
   margin: 0 auto 2rem auto;
+  @media (max-width: 900px) {
+    gap: 2rem;
+  }
+`;
+
+const CardsRow = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
   }
@@ -52,9 +59,9 @@ const CardsGrid = styled.div`
 
 const WorkCard = styled.div`
   display: flex;
-  flex-direction: row;
-  width: 500px;
-  height: 250px;
+  flex-direction: column;
+  width: 100%;
+  height: ${props => props.isLarge ? '650px' : '300px'};
   background: #fff;
   border-radius: 2rem;
   box-shadow: 0 4px 24px rgba(0,0,0,0.07);
@@ -62,33 +69,43 @@ const WorkCard = styled.div`
   border: 1.5px solid #ececec;
   @media (max-width: 600px) {
     width: 90vw;
-    height: 45vw;
-    min-height: 160px;
+    height: ${props => props.isLarge ? '110vw' : '55vw'};
+    min-height: 200px;
   }
 `;
 
 const CardTopic = styled.div`
-  flex: 1;
-  background: #f7e6e6;
+  width: 100%;
+  background: #f3e5dc;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Caudex', serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #b06c6c;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #222;
   padding: 1rem;
 `;
 
 const CardExp = styled.div`
-  flex: 2;
+  flex: 1;
   display: flex;
-  align-items: center;
-  font-family: 'Inter', sans-serif;
-  font-size: 1.1rem;
+  flex-direction: column;
+  font-family: 'Caudex', serif;
+  font-size: 1rem;
   color: #222;
   padding: 1.5rem;
   background: #faf9f6;
+  overflow-y: auto;
+`;
+
+const ListItem = styled.div`
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+  font-size: 0.95rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 const ExpSection = styled.section`
@@ -245,6 +262,13 @@ const Section = styled.div`
   scroll-margin-top: 80px;
 `;
 
+const RightCardsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  height: 100%;
+`;
+
 function App() {
   const [isHovered, setIsHovered] = useState(false);
   const [isVideoHovered, setIsVideoHovered] = useState(false);
@@ -302,6 +326,21 @@ function App() {
       type: 'twitter',
       tweetId: "1684632964049829888",
       imageUrl: "/twitter/tweet2.jpg"
+    },
+    {
+      type: 'twitter',
+      tweetId: "1590686963056922625",
+      imageUrl: "/twitter/tweet3.jpg"
+    },
+    {
+      type: 'twitter',
+      tweetId: "1586709625348722688",
+      imageUrl: "/twitter/tweet4.jpg"
+    },
+    {
+      type: 'twitter',
+      tweetId: "1583103610124087296",
+      imageUrl: "/twitter/tweet5.jpg"
     }
   ];
 
@@ -326,34 +365,48 @@ function App() {
 
       <Section ref={workSectionRef} data-section="work">
         <WorkHeadline>My Work</WorkHeadline>
-        <ExpSection>
-          <ExpHeadlineRow>
-            <ExpHeadline>Supra</ExpHeadline>
-            <ExpHeadlineImg src="/supra.png" alt="Supra logo" />
-          </ExpHeadlineRow>
-          <ExpSubtitleRow>
-            <ExpSubtitle>Growth Head</ExpSubtitle>
-          </ExpSubtitleRow>
-        </ExpSection>
         <CardsGrid>
-          <WorkCard>
-            <CardTopic>Marketing</CardTopic>
-            <CardExp>3 years at Creative Studio, led branding projects for startups and NGOs.</CardExp>
-          </WorkCard>
-          <WorkCard>
-            <CardTopic>BD</CardTopic>
-            <CardExp>2 years at Digital Agency, managed campaigns for tech and lifestyle brands.</CardExp>
-          </WorkCard>
-          <WorkCard>
-            <CardTopic>Events</CardTopic>
-            <CardExp>Product manager for SaaS platform, improved user retention by 30%.</CardExp>
-          </WorkCard>
-          <WorkCard>
-            <CardTopic>Growth</CardTopic>
-            <CardExp>Growth strategist for e-commerce, scaled user base from 10k to 100k.</CardExp>
-          </WorkCard>
+          <CardsRow>
+            <WorkCard isLarge>
+              <CardTopic>Supra Labs (L1 w integrated oracles)</CardTopic>
+              <CardExp>
+                <ListItem>• Led Dapp clients for oracle integration across 12 major ecosystems</ListItem>
+                <ListItem>• Assisted MOU deals for a pipeline of 1500+ projects to build on L1</ListItem>
+                <ListItem>• Led BD for 5 dapps which went live on L1 within 3 months of MoveVM mainnet</ListItem>
+                <ListItem>• Assisted in Narrative positioning, KOL, and podcast strategy pre-TGE marketing</ListItem>
+                <ListItem>• Led UAE expansion for BD and funds allocation</ListItem>
+                <ListItem>• Curated ecosystem incentive and vaults program design (Super dapp showdown, Citadel vaults, grants program)</ListItem>
+                <ListItem>• Project lead for global affiliates campaign, Supra Spartans (6k+ applications in cohort 1)</ListItem>
+                <ListItem>• Project lead for on-chain and off-chain bounty design in the Spartans program, along with ecosystem and dev bounties</ListItem>
+                <ListItem>• Led developer adoption and hackathon inception in APAC, onboarded 400+ Move devs</ListItem>
+                <ListItem>• Led strategy, execution, and hosted for IRL hands-on dev workshop across APAC with 700+ attendees in total</ListItem>
+                <ListItem>• Led event strategy for KBW, token2049 SG, IBW, ETH Denver, and token2049 Dubai</ListItem>
+                <ListItem>• Project and strategy lead for Demo day at KBW (labeled as the most ROI generating event for Supra)</ListItem>
+              </CardExp>
+            </WorkCard>
+            <RightCardsContainer>
+              <WorkCard>
+                <CardTopic>Heading</CardTopic>
+                <CardExp>Body</CardExp>
+              </WorkCard>
+              <WorkCard>
+                <CardTopic>Heading</CardTopic>
+                <CardExp>Body</CardExp>
+              </WorkCard>
+            </RightCardsContainer>
+          </CardsRow>
+          <CardsRow>
+            <WorkCard>
+              <CardTopic>Heading</CardTopic>
+              <CardExp>Body</CardExp>
+            </WorkCard>
+            <WorkCard>
+              <CardTopic>Heading</CardTopic>
+              <CardExp>Body</CardExp>
+            </WorkCard>
+          </CardsRow>
         </CardsGrid>
-        <SubHeading>other Projects</SubHeading>
+        <SubHeading>Accomplishments</SubHeading>
         <ImageCardsContainer>
           <ImageCardsWrapper
             animate={{
