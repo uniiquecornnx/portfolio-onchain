@@ -101,7 +101,14 @@ function Navbar({ onWorkClick, onPowClick, onCvClick }) {
         >
           CV
         </NavLinkAnchor>
-        <NavLink scrollProgress={scrollProgress}>Contact</NavLink>
+        <NavLinkAnchor 
+          href="https://calendly.com/aditi77/aditi-intro" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          scrollProgress={scrollProgress}
+        >
+          Contact
+        </NavLinkAnchor>
       </NavLinks>
     </Nav>
   );

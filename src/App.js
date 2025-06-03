@@ -423,7 +423,7 @@ function App() {
     {
       type: 'twitter',
       tweetId: "1808796890122621249",
-      imageUrl: "/twitter/tweet1.jpg"
+      imageUrl: `${process.env.PUBLIC_URL}/twitter/tweet1.jpg`
     },
     {
       type: 'youtube',
@@ -436,22 +436,22 @@ function App() {
     {
       type: 'twitter',
       tweetId: "1684632964049829888",
-      imageUrl: "/twitter/tweet2.jpg"
+      imageUrl: `${process.env.PUBLIC_URL}/twitter/tweet2.jpg`
     },
     {
       type: 'twitter',
       tweetId: "1590686963056922625",
-      imageUrl: "/twitter/tweet3.jpg"
+      imageUrl: `${process.env.PUBLIC_URL}/twitter/tweet3.jpg`
     },
     {
       type: 'twitter',
       tweetId: "1586709625348722688",
-      imageUrl: "/twitter/tweet4.jpg"
+      imageUrl: `${process.env.PUBLIC_URL}/twitter/tweet4.jpg`
     },
     {
       type: 'twitter',
       tweetId: "1583103610124087296",
-      imageUrl: "/twitter/tweet5.jpg"
+      imageUrl: `${process.env.PUBLIC_URL}/twitter/tweet5.jpg`
     }
   ];
 
