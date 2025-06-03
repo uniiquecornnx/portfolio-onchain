@@ -386,23 +386,49 @@ function App() {
             </WorkCard>
             <RightCardsContainer>
               <WorkCard>
-                <CardTopic>Heading</CardTopic>
-                <CardExp>Body</CardExp>
+                <CardTopic>Nordek (L2)</CardTopic>
+                <CardExp>
+                  <ListItem>• Led the growth team that had to oversee ecosystem expansion for L2</ListItem>
+                  <ListItem>• Projects launched included a staking + bridging integrated DEX, a web3 payments platform, and a launchpad</ListItem>
+                  <ListItem>• Led project incubation by connecting 5 VC firms and 10+ accelerators, MM, accelerators, audit providers, developer communities, and infrastructure SDKs within the ecosystem</ListItem>
+                  <ListItem>• Grew social channels to 7k organic members in 3 months</ListItem>
+                  <ListItem>• Helped raise $350k in less than 5 minutes for the pre-seed round of our first project in Launchpad</ListItem>
+                  <ListItem>• Other miscellaneous KPIs included assisting marketing with KOL, BD strategy, PR connects, content reviews, and the ambassador program</ListItem>
+                </CardExp>
               </WorkCard>
               <WorkCard>
-                <CardTopic>Heading</CardTopic>
-                <CardExp>Body</CardExp>
+                <CardTopic>Coinswitch Kuber (India's largest CEX)</CardTopic>
+                <CardExp>
+                  <ListItem>• Managed campaigns, giveaways, content buckets, and feed structures for Instagram, Twitter, and Linkedin</ListItem>
+                  <ListItem>• Helped in brand initiatives with celebrities and ambassadors</ListItem>
+                  <ListItem>• Created weekly newsletters via trend analysis, market research, and competitive analysis</ListItem>
+                  <ListItem>• Gained experience in social media and other analytical tools like Meltwater, HubSpot, and Social Sprout</ListItem>
+                </CardExp>
               </WorkCard>
             </RightCardsContainer>
           </CardsRow>
           <CardsRow>
             <WorkCard>
-              <CardTopic>Heading</CardTopic>
-              <CardExp>Body</CardExp>
+              <CardTopic>Cruize Finance (TradFi)</CardTopic>
+              <CardExp>
+                <ListItem>• Led 5+ product integrations (vaults) with Yearn Finance, bond protocol, graph, ape swap, and impossible finance</ListItem>
+                <ListItem>• Led socials to 22k+ on twitter and 10k+ on discord</ListItem>
+                <ListItem>• Strategy lead on content marketing in newsletter, emails, and Medium articles</ListItem>
+                <ListItem>• Led SM campaigns, KOL marketing, and podcasts</ListItem>
+                <ListItem>• Hosted IRL events during India Blockchain Week with a turnout of over 3500+ people</ListItem>
+                <ListItem>• Managed BD partnerships, along with being the spokesperson for Cruize at blockchain-related events</ListItem>
+              </CardExp>
             </WorkCard>
             <WorkCard>
-              <CardTopic>Heading</CardTopic>
-              <CardExp>Body</CardExp>
+              <CardTopic>Asva Labs (Venture Capital firm)</CardTopic>
+              <CardExp>
+                <ListItem>• Executed marketing campaigns for clients building metaverse and launching ICO</ListItem>
+                <ListItem>• Managed content and campaigns on Twitter, Telegram, and Medium</ListItem>
+                <ListItem>• Grew socials by 15K+ members in a span of 7 months</ListItem>
+                <ListItem>• Held client negotiations and product developments for various NFT projects</ListItem>
+                <ListItem>• Sold marketing plans for NFT project launches</ListItem>
+                <ListItem>• Headed the inception of Meta-club DAO for the company</ListItem>
+              </CardExp>
             </WorkCard>
           </CardsRow>
         </CardsGrid>

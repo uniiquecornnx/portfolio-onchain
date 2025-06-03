@@ -35,6 +35,22 @@ const NavLink = styled.button`
   }
 `;
 
+const NavLinkAnchor = styled.a`
+  background: none;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: ${props => props.scrolled ? '#222' : '#222'};
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: color 0.2s ease;
+  text-decoration: none;
+
+  &:hover {
+    color: #b06c6c;
+  }
+`;
+
 const Logo = styled.div`
   font-family: 'Caudex', serif;
   font-size: 1.5rem;
@@ -71,7 +87,14 @@ function Navbar({ onWorkClick, onPowClick, onCvClick }) {
       <NavLinks>
         <NavLink onClick={onWorkClick} scrolled={scrolled}>Work</NavLink>
         <NavLink onClick={onPowClick} scrolled={scrolled}>POW</NavLink>
-        <NavLink scrolled={scrolled}>CV</NavLink>
+        <NavLinkAnchor 
+          href="https://drive.google.com/file/d/1N77d8a20FcBJpMT9XwuWXso5aoHLRikx/view?usp=sharing" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          scrolled={scrolled}
+        >
+          CV
+        </NavLinkAnchor>
         <NavLink scrolled={scrolled}>Contact</NavLink>
       </NavLinks>
     </Nav>
