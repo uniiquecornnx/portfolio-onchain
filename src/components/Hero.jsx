@@ -37,22 +37,6 @@ const LeftSection = styled.div`
   }
 `;
 
-const Asterisk = styled.div`
-  font-size: 7vw;
-  font-family: 'Caudex', serif;
-  font-weight: 300;
-  text-shadow:
-    0 0 2px #fff,
-    0 0 4px #fff,
-    0 0 8px #fff;
-  color: #111;
-  margin-bottom: -1rem;
-
-  @media (max-width: 768px) {
-    font-size: 10vw;
-  }
-`;
-
 const Name = styled.h1`
   font-family: 'Caudex', serif;
   font-size: 6.3vw;

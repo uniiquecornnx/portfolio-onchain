@@ -125,58 +125,6 @@ const ListItem = styled.div`
   }
 `;
 
-const ExpSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 3rem;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  padding: 0 2rem;
-`;
-
-const ExpHeadlineRow = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-`;
-
-const ExpHeadline = styled.h2`
-  font-family: 'Caudex', serif;
-  font-size: 1.7rem;
-  font-weight: 400;
-  text-align: left;
-  margin: 0;
-  color: #222;
-`;
-
-const ExpHeadlineImg = styled.img`
-  width: 36px;
-  height: 36px;
-  object-fit: cover;
-  border-radius: 0.5rem;
-`;
-
-const ExpSubtitleRow = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.5rem;
-`;
-
-const ExpSubtitle = styled.div`
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  color: #888;
-  text-align: left;
-  margin-left: 0;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-`;
-
 const SubHeading = styled.h2`
   font-family: 'Caudex', serif;
   font-size: 2rem;
