@@ -193,6 +193,8 @@ const ImageCard = styled(motion.div)`
   border-radius: 1rem;
   box-shadow: 0 4px 24px rgba(0,0,0,0.07);
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 `;
 
 const CardImage = styled.img`
@@ -301,6 +303,18 @@ function App() {
       image: "/projects/business-dev.jpg",
       title: "Business Development",
       description: "Spearheaded business development initiatives, establishing key partnerships and driving revenue growth. Successfully negotiated and closed strategic deals with major industry players."
+    },
+    {
+      image: "/projects/supra-showdown.jpg",
+      title: "Supra Showdown Achievement",
+      description: "Recognized for outstanding contribution to Supra's ecosystem growth and community engagement.",
+      link: "https://x.com/SUPRA_Labs/status/1818479104670548370"
+    },
+    {
+      image: "/projects/Screenshot 2025-06-03 at 4.46.53 PM.png",
+      title: "Supra Ecosystem Growth",
+      description: "Leading the charge in Supra's ecosystem expansion and community development initiatives.",
+      link: "https://x.com/SUPRA_Labs/status/1818704949523759373"
     }
   ];
 
@@ -457,6 +471,10 @@ function App() {
                 }}
                 onHoverStart={() => setIsHovered(true)}
                 onHoverEnd={() => setIsHovered(false)}
+                as={project.link ? 'a' : 'div'}
+                href={project.link}
+                target={project.link ? '_blank' : undefined}
+                rel={project.link ? 'noopener noreferrer' : undefined}
               >
                 <CardImage src={project.image} alt={project.title} />
                 <CardContent>

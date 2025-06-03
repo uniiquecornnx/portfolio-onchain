@@ -57,6 +57,12 @@ const Logo = styled.div`
   font-size: 1.5rem;
   font-weight: 700;
   color: ${props => props.scrollProgress > 0.5 ? '#222' : '#222'};
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 function Navbar({ onWorkClick, onPowClick, onCvClick }) {
@@ -74,9 +80,16 @@ function Navbar({ onWorkClick, onPowClick, onCvClick }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <Nav scrollProgress={scrollProgress}>
-      <Logo scrollProgress={scrollProgress}>*A</Logo>
+      <Logo scrollProgress={scrollProgress} onClick={scrollToTop}>*A</Logo>
       <NavLinks>
         <NavLink onClick={onWorkClick} scrollProgress={scrollProgress}>Work</NavLink>
         <NavLink onClick={onPowClick} scrollProgress={scrollProgress}>POW</NavLink>
