@@ -175,37 +175,74 @@ const ImageCardsContainer = styled.div`
   position: relative;
   margin: 0 auto 6rem auto;
   padding: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const ImageCardsWrapper = styled(motion.div)`
   display: flex;
-  gap: 4rem;
+  gap: 2rem;
   padding: 0 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
+const NavigationButton = styled.button`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: 1px solid #ececec;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 2;
+  &:hover {
+    background: #f5f5f5;
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  &.prev {
+    left: 1rem;
+  }
+  &.next {
+    right: 1rem;
+  }
 `;
 
 const ImageCard = styled(motion.div)`
-  min-width: 600px;
+  min-width: 370px;
+  width: 380px;
+  height: 450px;
   display: flex;
-  gap: 2rem;
-  align-items: center;
+  flex-direction: column;
   background: white;
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: 1rem;
   box-shadow: 0 4px 24px rgba(0,0,0,0.07);
   cursor: pointer;
   text-decoration: none;
   color: inherit;
+  overflow: hidden;
 `;
 
 const CardImage = styled.img`
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 1rem;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 0.5rem;
 `;
 
 const CardContent = styled.div`
-  flex: 1;
+  display: none;
 `;
 
 const CardTitle = styled.h3`
@@ -274,6 +311,7 @@ const RightCardsContainer = styled.div`
 function App() {
   const [isHovered, setIsHovered] = useState(false);
   const [isVideoHovered, setIsVideoHovered] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
   
   const workSectionRef = useRef(null);
   const powSectionRef = useRef(null);
@@ -285,36 +323,46 @@ function App() {
 
   const projects = [
     {
-      image: "/projects/supra-project.jpg",
-      title: "Supra Growth Strategy",
-      description: "Led growth initiatives at Supra, implementing innovative marketing strategies that resulted in significant user acquisition and engagement. Focused on community building and strategic partnerships in the web3 space."
+      image: "/projects/image7.png",
+      title: "Supra Community Innovation",
+      description: "Pioneering innovative approaches in Supra's community and ecosystem development",
+      link: "https://x.com/SUPRA_Labs/status/1864279428601401708"
     },
     {
-      image: "/projects/marketing-campaign.jpg",
-      title: "Digital Marketing Campaign",
-      description: "Orchestrated comprehensive digital marketing campaigns for tech startups, achieving 150% growth in user engagement and 200% increase in conversion rates through targeted social media and content strategies."
+      image: "/projects/image3.png",
+      title: "Supra Community Leadership",
+      description: "Leading initiatives and driving growth in Supra's ecosystem",
+      link: "https://x.com/SUPRA_Labs/status/1883791812021879101"
     },
     {
-      image: "/projects/community-event.jpg",
-      title: "Community Event Series",
-      description: "Organized and executed successful community events and workshops, bringing together industry leaders and enthusiasts. Created engaging content and managed social media presence to maximize event impact."
+      image: "/projects/image6.png",
+      title: "Supra Community Excellence",
+      description: "Demonstrating excellence in community building and ecosystem development",
+      link: "https://x.com/SUPRA_Labs/status/1914688265652736443"
     },
     {
-      image: "/projects/business-dev.jpg",
-      title: "Business Development",
-      description: "Spearheaded business development initiatives, establishing key partnerships and driving revenue growth. Successfully negotiated and closed strategic deals with major industry players."
+      image: "/projects/image1.png",
+      title: "Supra Community Impact",
+      description: "Making significant contributions to Supra's community development and ecosystem growth",
+      link: "https://x.com/SUPRA_Labs/status/1778921240985817303"
     },
     {
-      image: "/projects/supra-showdown.jpg",
-      title: "Supra Showdown Achievement",
-      description: "Recognized for outstanding contribution to Supra's ecosystem growth and community engagement.",
+      image: "/projects/image2.png",
+      title: "Supra Community Recognition",
+      description: "Recognized for outstanding contributions to Supra's community and ecosystem development",
       link: "https://x.com/SUPRA_Labs/status/1818479104670548370"
     },
     {
-      image: "/projects/Screenshot 2025-06-03 at 4.46.53 PM.png",
-      title: "Supra Ecosystem Growth",
-      description: "Leading the charge in Supra's ecosystem expansion and community development initiatives.",
-      link: "https://x.com/SUPRA_Labs/status/1818704949523759373"
+      image: "/projects/image4.png",
+      title: "Supra Community Engagement",
+      description: "Driving community engagement and ecosystem development at Supra",
+      link: "https://x.com/SUPRA_Labs/status/1831184908561056222"
+    },
+    {
+      image: "/projects/image5.png",
+      title: "Supra Community Development",
+      description: "Contributing to Supra's community growth and ecosystem development",
+      link: "https://x.com/SUPRA_Labs/status/1816312113947893839"
     }
   ];
 
@@ -360,6 +408,14 @@ function App() {
 
   const duplicatedProjects = [...projects, ...projects];
   const duplicatedVideos = [...videos, ...videos];
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => Math.max(0, prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => Math.min(projects.length - 3, prev + 1));
+  };
 
   return (
     <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
@@ -448,21 +504,15 @@ function App() {
         </CardsGrid>
         <SubHeading>Accomplishments</SubHeading>
         <ImageCardsContainer>
-          <ImageCardsWrapper
-            animate={{
-              x: [0, -2400],
-            }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 20,
-                ease: "linear",
-              },
-            }}
-            style={{ animationPlayState: isHovered ? 'paused' : 'running' }}
+          <NavigationButton 
+            className="prev" 
+            onClick={handlePrev}
+            disabled={currentIndex === 0}
           >
-            {duplicatedProjects.map((project, index) => (
+            ←
+          </NavigationButton>
+          <ImageCardsWrapper>
+            {projects.slice(currentIndex, currentIndex + 3).map((project, index) => (
               <ImageCard 
                 key={index}
                 whileHover={{ 
@@ -484,6 +534,13 @@ function App() {
               </ImageCard>
             ))}
           </ImageCardsWrapper>
+          <NavigationButton 
+            className="next" 
+            onClick={handleNext}
+            disabled={currentIndex >= projects.length - 3}
+          >
+            →
+          </NavigationButton>
         </ImageCardsContainer>
       </Section>
 
@@ -498,8 +555,9 @@ function App() {
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 20,
+                duration: 30,
                 ease: "linear",
+                repeatDelay: 0
               },
             }}
             style={{ animationPlayState: isVideoHovered ? 'paused' : 'running' }}
