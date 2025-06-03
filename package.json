@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fontsource/caudex": "^5.2.6",
     "@fontsource/cormorant-garamond": "^5.2.7",
     "@fontsource/inter": "^5.2.5",
     "@testing-library/dom": "^10.4.0",
