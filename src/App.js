@@ -35,6 +35,10 @@ const WorkHeadline = styled.h2`
   text-align: center;
   margin: 8rem 0 3rem 0;
   color: #222;
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    margin: 4rem 0 2rem 0;
+  }
 `;
 
 const CardsGrid = styled.div`
@@ -43,8 +47,9 @@ const CardsGrid = styled.div`
   gap: 3.5rem;
   max-width: 1000px;
   margin: 0 auto 2rem auto;
-  @media (max-width: 900px) {
+  @media (max-width: 768px) {
     gap: 2rem;
+    padding: 0 1rem;
   }
 `;
 
@@ -52,8 +57,9 @@ const CardsRow = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3.5rem;
-  @media (max-width: 900px) {
+  @media (max-width: 768px) {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
 `;
 
@@ -67,10 +73,9 @@ const WorkCard = styled.div`
   box-shadow: 0 4px 24px rgba(0,0,0,0.07);
   overflow: hidden;
   border: 1.5px solid #ececec;
-  @media (max-width: 600px) {
-    width: 90vw;
-    height: ${props => props.isLarge ? '110vw' : '55vw'};
-    min-height: 200px;
+  @media (max-width: 768px) {
+    height: ${props => props.isLarge ? '500px' : '250px'};
+    border-radius: 1rem;
   }
 `;
 
@@ -85,6 +90,10 @@ const CardTopic = styled.div`
   font-weight: 400;
   color: #222;
   padding: 1rem;
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+    padding: 0.75rem;
+  }
 `;
 
 const CardExp = styled.div`
@@ -97,6 +106,10 @@ const CardExp = styled.div`
   padding: 1.5rem;
   background: #faf9f6;
   overflow-y: auto;
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
 `;
 
 const ListItem = styled.div`
@@ -105,6 +118,10 @@ const ListItem = styled.div`
   font-size: 0.95rem;
   &:last-child {
     margin-bottom: 0;
+  }
+  @media (max-width: 768px) {
+    font-size: 0.85rem;
+    margin-bottom: 0.6rem;
   }
 `;
 
@@ -167,6 +184,10 @@ const SubHeading = styled.h2`
   text-align: center;
   margin: 6rem 0 3rem 0;
   color: #222;
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    margin: 3rem 0 2rem 0;
+  }
 `;
 
 const ImageCardsContainer = styled.div`
@@ -178,6 +199,10 @@ const ImageCardsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 768px) {
+    padding: 1rem 0;
+    margin-bottom: 3rem;
+  }
 `;
 
 const ImageCardsWrapper = styled(motion.div)`
@@ -186,6 +211,10 @@ const ImageCardsWrapper = styled(motion.div)`
   padding: 0 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  @media (max-width: 768px) {
+    gap: 1rem;
+    padding: 0 1rem;
+  }
 `;
 
 const NavigationButton = styled.button`
@@ -216,6 +245,16 @@ const NavigationButton = styled.button`
   &.next {
     right: 1rem;
   }
+  @media (max-width: 768px) {
+    width: 32px;
+    height: 32px;
+    &.prev {
+      left: 0.5rem;
+    }
+    &.next {
+      right: 0.5rem;
+    }
+  }
 `;
 
 const ImageCard = styled(motion.div)`
@@ -232,6 +271,12 @@ const ImageCard = styled(motion.div)`
   text-decoration: none;
   color: inherit;
   overflow: hidden;
+  @media (max-width: 768px) {
+    min-width: 280px;
+    width: 280px;
+    height: 350px;
+    padding: 0.5rem;
+  }
 `;
 
 const CardImage = styled.img`
@@ -270,6 +315,10 @@ const VideoCard = styled(motion.div)`
   border-radius: 0.5rem;
   box-shadow: 0 4px 24px rgba(0,0,0,0.07);
   cursor: pointer;
+  @media (max-width: 768px) {
+    min-width: 250px;
+    padding: 0.5rem;
+  }
 `;
 
 const VideoEmbed = styled.div`
