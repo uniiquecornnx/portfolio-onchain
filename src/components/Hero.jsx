@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { useRef, useState } from 'react';
-import { motion } from 'framer-motion';
 import '@fontsource/caudex/400.css';
 
 const HeroContainer = styled.section`
@@ -14,6 +13,14 @@ const HeroContainer = styled.section`
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 0 2rem;
+    margin-top: 4rem;
+    min-height: auto;
+    gap: 2rem;
+  }
 `;
 
 const LeftSection = styled.div`
@@ -22,6 +29,12 @@ const LeftSection = styled.div`
   align-items: flex-start;
   flex: 1;
   margin-top: -1rem;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    text-align: center;
+    margin-top: 0;
+  }
 `;
 
 const Asterisk = styled.div`
@@ -34,6 +47,10 @@ const Asterisk = styled.div`
     0 0 8px #fff;
   color: #111;
   margin-bottom: -1rem;
+
+  @media (max-width: 768px) {
+    font-size: 10vw;
+  }
 `;
 
 const Name = styled.h1`
@@ -48,6 +65,11 @@ const Name = styled.h1`
     0 0 2px #fff,
     0 0 4px #fff,
     0 0 8px #fff;
+
+  @media (max-width: 768px) {
+    font-size: 12vw;
+    text-align: center;
+  }
 `;
 
 const Introduction = styled.p`
@@ -58,6 +80,12 @@ const Introduction = styled.p`
   max-width: 1000px;
   line-height: 1.4;
   font-weight: 500;
+
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
+    text-align: center;
+  }
 `;
 
 const RightSection = styled.div`
@@ -66,6 +94,11 @@ const RightSection = styled.div`
   flex-direction: column;
   align-items: flex-end;
   gap: 2rem;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    width: 100%;
+  }
 `;
 
 const ArchVideo = styled.div`
@@ -78,6 +111,12 @@ const ArchVideo = styled.div`
   align-items: flex-end;
   justify-content: center;
   box-shadow: 0 8px 32px #fff;
+
+  @media (max-width: 768px) {
+    width: 250px;
+    height: 400px;
+    border-radius: 150px 150px 150px 150px / 100px 100px 100px 100px;
+  }
 `;
 
 const StyledVideo = styled.video`
@@ -115,12 +154,21 @@ const InfoItems = styled.div`
   gap: 1.2rem;
   margin-top: 1rem;
   margin-bottom: 0rem;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    gap: 1rem;
+  }
 `;
 
 const InfoItem = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 `;
 
 const InfoIcon = styled.img`
@@ -141,6 +189,11 @@ const SocialLinks = styled.div`
   align-items: center;
   gap: 1.5rem;
   margin-top: 2rem;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
 `;
 
 const SocialLink = styled.a`

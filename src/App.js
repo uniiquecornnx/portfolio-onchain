@@ -3,7 +3,7 @@ import Hero from './components/Hero';
 import './App.css';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 const BgVideoWrapper = styled.div`
   position: absolute;
@@ -214,6 +214,7 @@ const ImageCardsWrapper = styled(motion.div)`
   @media (max-width: 768px) {
     gap: 1rem;
     padding: 0 1rem;
+    justify-content: center;
   }
 `;
 
@@ -358,16 +359,36 @@ const RightCardsContainer = styled.div`
 `;
 
 function App() {
-  const [isHovered, setIsHovered] = useState(false);
   const [isVideoHovered, setIsVideoHovered] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   
   const workSectionRef = useRef(null);
   const powSectionRef = useRef(null);
   const cvSectionRef = useRef(null);
   
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const scrollToSection = (ref) => {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => Math.max(0, prev - (isMobile ? 1 : 3)));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => Math.min(
+      projects.length - (isMobile ? 1 : 3),
+      prev + (isMobile ? 1 : 3)
+    ));
   };
 
   const projects = [
@@ -455,16 +476,7 @@ function App() {
     }
   ];
 
-  const duplicatedProjects = [...projects, ...projects];
   const duplicatedVideos = [...videos, ...videos];
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) => Math.max(0, prev - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => Math.min(projects.length - 3, prev + 1));
-  };
 
   return (
     <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
@@ -561,15 +573,18 @@ function App() {
             ←
           </NavigationButton>
           <ImageCardsWrapper>
-            {projects.slice(currentIndex, currentIndex + 3).map((project, index) => (
+            {projects.slice(
+              currentIndex,
+              currentIndex + (isMobile ? 1 : 3)
+            ).map((project, index) => (
               <ImageCard 
                 key={index}
                 whileHover={{ 
                   scale: 1.05,
                   transition: { duration: 0.2 }
                 }}
-                onHoverStart={() => setIsHovered(true)}
-                onHoverEnd={() => setIsHovered(false)}
+                onHoverStart={() => setIsVideoHovered(true)}
+                onHoverEnd={() => setIsVideoHovered(false)}
                 as={project.link ? 'a' : 'div'}
                 href={project.link}
                 target={project.link ? '_blank' : undefined}
@@ -586,7 +601,7 @@ function App() {
           <NavigationButton 
             className="next" 
             onClick={handleNext}
-            disabled={currentIndex >= projects.length - 3}
+            disabled={currentIndex >= projects.length - (isMobile ? 1 : 3)}
           >
             →
           </NavigationButton>
@@ -636,7 +651,7 @@ function App() {
                   >
                     <img 
                       src={video.imageUrl} 
-                      alt="Tweet image"
+                      alt="Tweet"
                       loading="lazy"
                     />
                   </TwitterImage>
