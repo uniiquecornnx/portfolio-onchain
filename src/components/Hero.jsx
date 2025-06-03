@@ -156,12 +156,6 @@ const SocialLink = styled.a`
   }
 `;
 
-const InstagramLink = styled(SocialLink)`
-  width: 40px;
-  height: 40px;
-  margin-top: -2.5px;
-`;
-
 const SocialIcon = styled.img`
   width: 100%;
   height: 100%;
@@ -203,15 +197,12 @@ const Hero = () => {
           Creating impactful solutions and driving success through innovative strategies.
         </Introduction>
         <SocialLinks>
-          <SocialLink href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
+          <SocialLink href="https://www.linkedin.com/in/aditigupta77/" target="_blank" rel="noopener noreferrer">
             <SocialIcon src="/linkedin-icon.png" alt="LinkedIn" />
           </SocialLink>
           <SocialLink href="https://twitter.com/OnchainAditi" target="_blank" rel="noopener noreferrer">
             <SocialIcon src="/twitter-icon.png" alt="Twitter" />
           </SocialLink>
-          <InstagramLink href="https://instagram.com/your-handle" target="_blank" rel="noopener noreferrer">
-            <SocialIcon src="/instagram-icon.png" alt="Instagram" />
-          </InstagramLink>
         </SocialLinks>
       </LeftSection>
       <RightSection>

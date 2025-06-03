@@ -12,7 +12,8 @@ const Nav = styled.nav`
   padding: 1.5rem 2rem;
   z-index: 1000;
   transition: background-color 0.3s ease;
-  background-color: ${props => props.scrolled ? 'rgba(255, 255, 255, 1)' : 'transparent'};
+  background-color: ${props => `rgba(255, 255, 255, ${props.scrollProgress})`};
+  backdrop-filter: ${props => props.scrollProgress > 0 ? 'blur(8px)' : 'none'};
 `;
 
 const NavLinks = styled.div`
@@ -25,7 +26,7 @@ const NavLink = styled.button`
   border: none;
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
-  color: ${props => props.scrolled ? '#222' : '#222'};
+  color: ${props => props.scrollProgress > 0.5 ? '#222' : '#222'};
   cursor: pointer;
   padding: 0.5rem 1rem;
   transition: color 0.2s ease;
@@ -40,7 +41,7 @@ const NavLinkAnchor = styled.a`
   border: none;
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
-  color: ${props => props.scrolled ? '#222' : '#222'};
+  color: ${props => props.scrollProgress > 0.5 ? '#222' : '#222'};
   cursor: pointer;
   padding: 0.5rem 1rem;
   transition: color 0.2s ease;
@@ -55,26 +56,18 @@ const Logo = styled.div`
   font-family: 'Caudex', serif;
   font-size: 1.5rem;
   font-weight: 700;
-  color: ${props => props.scrolled ? '#222' : '#222'};
+  color: ${props => props.scrollProgress > 0.5 ? '#222' : '#222'};
 `;
 
 function Navbar({ onWorkClick, onPowClick, onCvClick }) {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      const workSection = document.querySelector('[data-section="work"]');
-      if (workSection) {
-        const workSectionTop = workSection.offsetTop;
-        const scrollPosition = window.scrollY;
-        
-        // Start transition when we're 100px before the work section
-        if (scrollPosition > workSectionTop - 100) {
-          setScrolled(true);
-        } else {
-          setScrolled(false);
-        }
-      }
+      const scrollPosition = window.scrollY;
+      const maxScroll = 300; // Adjust this value to control how quickly the header becomes white
+      const progress = Math.min(scrollPosition / maxScroll, 1);
+      setScrollProgress(progress);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -82,20 +75,20 @@ function Navbar({ onWorkClick, onPowClick, onCvClick }) {
   }, []);
 
   return (
-    <Nav scrolled={scrolled}>
-      <Logo scrolled={scrolled}>*A</Logo>
+    <Nav scrollProgress={scrollProgress}>
+      <Logo scrollProgress={scrollProgress}>*A</Logo>
       <NavLinks>
-        <NavLink onClick={onWorkClick} scrolled={scrolled}>Work</NavLink>
-        <NavLink onClick={onPowClick} scrolled={scrolled}>POW</NavLink>
+        <NavLink onClick={onWorkClick} scrollProgress={scrollProgress}>Work</NavLink>
+        <NavLink onClick={onPowClick} scrollProgress={scrollProgress}>POW</NavLink>
         <NavLinkAnchor 
           href="https://drive.google.com/file/d/1N77d8a20FcBJpMT9XwuWXso5aoHLRikx/view?usp=sharing" 
           target="_blank" 
           rel="noopener noreferrer"
-          scrolled={scrolled}
+          scrollProgress={scrollProgress}
         >
           CV
         </NavLinkAnchor>
-        <NavLink scrolled={scrolled}>Contact</NavLink>
+        <NavLink scrollProgress={scrollProgress}>Contact</NavLink>
       </NavLinks>
     </Nav>
   );
