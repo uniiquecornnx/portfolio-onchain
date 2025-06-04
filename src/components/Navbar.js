@@ -71,7 +71,7 @@ function Navbar({ onWorkClick, onPowClick, onCvClick }) {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const maxScroll = 300; // Adjust this value to control how quickly the header becomes white
+      const maxScroll = 300; //  value to control how quickly the header becomes white
       const progress = Math.min(scrollPosition / maxScroll, 1);
       setScrollProgress(progress);
     };

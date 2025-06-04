@@ -442,7 +442,7 @@ function App() {
         <Hero />
       </MainContent>
 
-      <Section ref={workSectionRef} data-section="work">
+      <Section ref={workSectionRef} data-section="work" id="pow">
         <WorkHeadline>My Work</WorkHeadline>
         <CardsGrid>
           <CardsRow>
@@ -511,7 +511,7 @@ function App() {
             </WorkCard>
           </CardsRow>
         </CardsGrid>
-        <SubHeading>Accomplishments</SubHeading>
+        <SubHeading>POW</SubHeading>
         <ImageCardsContainer>
           <NavigationButton 
             className="prev" 
@@ -556,8 +556,8 @@ function App() {
         </ImageCardsContainer>
       </Section>
 
-      <Section ref={powSectionRef}>
-        <SubHeading>POW</SubHeading>
+      <Section ref={powSectionRef} >
+        <SubHeading>Speaker sessions</SubHeading>
         <ImageCardsContainer>
           <ImageCardsWrapper
             animate={{

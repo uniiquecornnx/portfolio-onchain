@@ -230,8 +230,10 @@ const Hero = () => {
           </InfoItem>
         </InfoItems>
         <Introduction>
-          A passionate professional with expertise in growth, marketing, and business development. 
-          Creating impactful solutions and driving success through innovative strategies.
+        We all have our roles to play,
+mine here is helping your project win.
+I’d love to break down growth strategy for your project in 30 minutes.
+Find my calendly link below, and i'll see you there!
         </Introduction>
         <SocialLinks>
           <SocialLink href="https://www.linkedin.com/in/aditigupta77/" target="_blank" rel="noopener noreferrer">
@@ -239,6 +241,9 @@ const Hero = () => {
           </SocialLink>
           <SocialLink href="https://twitter.com/OnchainAditi" target="_blank" rel="noopener noreferrer">
             <SocialIcon src="/Twitter-icon.png" alt="Twitter" />
+          </SocialLink>
+          <SocialLink href="https://t.me/OnchainAditi" target="_blank" rel="noopener noreferrer">
+            <SocialIcon src="/telegram-icon.png" alt="Telegram" style={{ width: '100%', height: '100%' }} />
           </SocialLink>
         </SocialLinks>
       </LeftSection>
