@@ -306,6 +306,47 @@ const RightCardsContainer = styled.div`
   height: 100%;
 `;
 
+const ContactButton = styled.a`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  margin: 0 1rem;
+  background: #f3e5dc;
+  color: #222;
+  font-family: 'Caudex', serif;
+  font-size: 1.1rem;
+  text-decoration: none;
+  border-radius: 2rem;
+  border: 1.5px solid #ececec;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  @media (max-width: 768px) {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    margin: 0.5rem;
+  }
+`;
+
+const ContactButtonsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
 function App() {
   const [isVideoHovered, setIsVideoHovered] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -313,6 +354,7 @@ function App() {
   
   const workSectionRef = useRef(null);
   const powSectionRef = useRef(null);
+  const powHeadingRef = useRef(null);
   const cvSectionRef = useRef(null);
   
   useEffect(() => {
@@ -436,7 +478,7 @@ function App() {
       <MainContent>
         <Navbar 
           onWorkClick={() => scrollToSection(workSectionRef)}
-          onPowClick={() => scrollToSection(powSectionRef)}
+          onPowClick={() => scrollToSection(powHeadingRef)}
           onCvClick={() => scrollToSection(cvSectionRef)}
         />
         <Hero />
@@ -511,7 +553,7 @@ function App() {
             </WorkCard>
           </CardsRow>
         </CardsGrid>
-        <SubHeading>POW</SubHeading>
+        <SubHeading ref={powHeadingRef}>POW</SubHeading>
         <ImageCardsContainer>
           <NavigationButton 
             className="prev" 
@@ -611,7 +653,23 @@ function App() {
       </Section>
 
       <Section ref={cvSectionRef}>
-        {/* Add your CV section content here */}
+        <SubHeading>Contact here!</SubHeading>
+        <ContactButtonsContainer>
+          <ContactButton 
+            href="https://calendly.com/aditi77/aditi-intro" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            Schedule a Call
+          </ContactButton>
+          <ContactButton 
+            href="https://t.me/OnchainAditi" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            Telegram
+          </ContactButton>
+        </ContactButtonsContainer>
       </Section>
     </div>
   );
