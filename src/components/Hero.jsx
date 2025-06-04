@@ -238,7 +238,7 @@ const Hero = () => {
             <SocialIcon src="/linkedin-icon.png" alt="LinkedIn" />
           </SocialLink>
           <SocialLink href="https://twitter.com/OnchainAditi" target="_blank" rel="noopener noreferrer">
-            <SocialIcon src="/twitter-icon.png" alt="Twitter" />
+            <SocialIcon src="/Twitter-icon.png" alt="Twitter" />
           </SocialLink>
         </SocialLinks>
       </LeftSection>
