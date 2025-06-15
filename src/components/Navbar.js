@@ -186,7 +186,7 @@ function Navbar({ onWorkClick, onPowClick, onCvClick }) {
         <NavLink onClick={onWorkClick} scrollProgress={scrollProgress}>Work</NavLink>
         <NavLink onClick={onPowClick} scrollProgress={scrollProgress}>POW</NavLink>
         <NavLinkAnchor 
-          href="https://drive.google.com/file/d/1N77d8a20FcBJpMT9XwuWXso5aoHLRikx/view?usp=sharing" 
+          href="https://drive.google.com/file/d/1rd1lledHIra7GMxAz60FoK1-pCMlSEu2/view?usp=drivesdk" 
           target="_blank" 
           rel="noopener noreferrer"
           scrollProgress={scrollProgress}

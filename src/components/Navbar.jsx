@@ -63,7 +63,7 @@ const MobileMenu = styled.div`
     position: absolute;
     top: 60px;
     right: 16px;
-    background: white;
+    background: #ffffff;
     border-radius: 0.5rem;
     box-shadow: 0 4px 24px rgba(0,0,0,0.07);
     padding: 1rem 2rem;
@@ -71,6 +71,7 @@ const MobileMenu = styled.div`
     gap: 1rem;
     min-width: 120px;
     animation: fadeIn 0.2s;
+    backdrop-filter: none;
   }
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-10px); }

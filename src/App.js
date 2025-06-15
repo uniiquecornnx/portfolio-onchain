@@ -423,6 +423,12 @@ function App() {
       title: "Supra Community Development",
       description: "Contributing to Supra's community growth and ecosystem development",
       link: "https://x.com/SUPRA_Labs/status/1816312113947893839"
+    },
+    {
+      image: "/projects/image8.png",
+      title: "Supra Community Achievement",
+      description: "Showcasing achievements and milestones in Supra's ecosystem development",
+      link: "https://x.com/SUPRA_Labs/status/1839983395314475505"
     }
   ];
 
@@ -530,7 +536,7 @@ function App() {
           </CardsRow>
           <CardsRow>
             <WorkCard>
-              <CardTopic>Cruize Finance (TradFi)</CardTopic>
+              <CardTopic>Cruize Finance (Defi)</CardTopic>
               <CardExp>
                 <ListItem>• Led 5+ product integrations (vaults) with Yearn Finance, bond protocol, graph, ape swap, and impossible finance</ListItem>
                 <ListItem>• Led socials to 22k+ on twitter and 10k+ on discord</ListItem>
